@@ -9,14 +9,16 @@ class Solution(object):
 
                 curr = board[i][j]
 
-                if curr != '.':
-                    sqIndex = (i // 3) * 3 + (j // 3)
+                if curr == '.':
+                    continue
+   
+                sqIndex = (i // 3) * 3 + (j // 3)
 
-                    if curr in rowset[i] or curr in colset[j] or curr in squareset[sqIndex]:
-                        return False
+                if curr in rowset[i] or curr in colset[j] or curr in squareset[sqIndex]:
+                    return False
                     
-                    rowset[i].add(curr)
-                    colset[j].add(curr)
-                    squareset[sqIndex].add(curr)
+                rowset[i].add(curr)
+                colset[j].add(curr)
+                squareset[sqIndex].add(curr)
         return True
         
