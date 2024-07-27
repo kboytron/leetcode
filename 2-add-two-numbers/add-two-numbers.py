@@ -15,9 +15,9 @@ class Solution(object):
 
             sum = val1 + val2 + c
             c = sum //10
-            newVal = sum %10
+            #newVal = 
 
-            curr.next = ListNode(newVal)
+            curr.next = ListNode(sum %10)
             curr = curr.next
 
             if l1:
