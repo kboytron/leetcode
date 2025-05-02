@@ -1,18 +1,18 @@
 class Solution(object):
     def isAnagram(self, s, t):
-        sMap = {}
-        tMap = {}
-
+        check = {}
+        if(len(s) != len(t)):
+            return False
         for char in s:
-            if char in sMap:
-                sMap[char] += 1
+            if char in check:
+                check[char] += 1
             else:
-                sMap[char] = 1
-
+                check[char] = 1
+        
         for char in t:
-            if char in tMap:
-                tMap[char] += 1
-            else:
-                tMap[char] = 1
-        return sMap == tMap
+            if char not in check or check[char] == 0:
+                return False
+            check[char] -= 1
+        return True
+    
         
