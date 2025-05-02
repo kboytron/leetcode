@@ -1,9 +1,12 @@
 class Solution(object):
     def twoSum(self, nums, target):
-        numsMap = {}
+        indices = {}
 
-        for index,val in enumerate(nums):
-            complement = target-val
-            if complement in numsMap:
-                return (numsMap[complement], index)
-            numsMap[val] = index
+        for i in range (len(nums)):
+            if(target - nums[i]) in indices:
+                return [i, indices[target-nums[i]]]
+            
+            indices[nums[i]] = i
+
+
+        
